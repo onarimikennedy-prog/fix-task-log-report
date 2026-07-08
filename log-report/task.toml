@@ -14,7 +14,7 @@ model_tested = "GPT-5.4"
 agent_tested = "Terminus-2"
 difficulty_explanation = "Parse a fixed-format access log at /app/access.log and compute three summary statistics: total request count, count of distinct client IPs, and the most-requested path. Requires correctly extracting the method/path from the quoted request field and aggregating across lines."
 solution_explanation = "Iterate over each non-blank line: increment a request counter, add the leading IP to a set, and regex out the path from the quoted request field into a Counter. Write total_requests, unique_ips, and top_path (the Counter's most common entry) to /app/report.json."
-verification_explanation = "The verifier checks /app/report.json exists, is a JSON object with the required keys, and that each value (total_requests, unique_ips, top_path) equals the true value for the fixed access.log shipped in the image -- not just that the file exists."
+verification_explanation = "The verifier checks /app/report.json exists, is a JSON object with the required keys, and that each value (total_requests, unique_ips, top_path) equals the true value for the fixed access.log shipped in the image, not just that the file exists."
 
 [verifier]
 timeout_sec = 120.0
